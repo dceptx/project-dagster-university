@@ -187,3 +187,7 @@ tmp*/
 .user.yml
 
 postgres_data/
+
+
+.venv/
+.idea/
