@@ -1,5 +1,4 @@
 import os
-
 import dagster as dg
 import duckdb
 import requests
