@@ -1,5 +1,14 @@
 import dagster as dg
+from pathlib import Path
 
 
-@dg.asset
-def assets(context: dg.AssetExecutionContext) -> dg.MaterializeResult: ...
+class IngestionFileConfig(dg.Config):
+    path: str
+
+
+@dg.asset()
+def import_file(context: dg.AssetExecutionContext, config: IngestionFileConfig) -> str:
+    file_path = (
+        Path(__file__).absolute().parent / f"../../../data/source/{config.path}"
+    )
+    return str(file_path.resolve())
